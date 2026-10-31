@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "id": "lagfixer",
+  "version": "${version}",
+  "name": "Lag Fixer",
+  "description": "Minecraft 26.3 performance diagnostics, render limits, and opt-in experimental optimizations.",
+  "authors": [ "devxkamlesh" ],
+  "contact": {
+    "homepage": "https://modrinth.com/mod/lag-fixer",
+    "sources":  "https://github.com/devxkamlesh/lag-fixer",
+    "issues":   "https://github.com/devxkamlesh/lag-fixer/issues"
+  },
+  "license": "All Rights Reserved",
+  "icon": "assets/lagfixer/icon.png",
+  "environment": "client",
+
+  "entrypoints": {
+    "client": [
+      "com.devxkamlesh.lagfixer.LagFixerMod"
+    ],
+    "modmenu": [
+      "com.devxkamlesh.lagfixer.compat.LagFixerModMenuIntegration"
+    ]
+  },
+
+  "mixins": [
+    "lagfixer.mixins.json",
+    "lagfixer.client.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "minecraft":    "26.3",
+    "java":         ">=25",
+    "fabric-api":   "*"
+  },
+  "recommends": {
+    "cloth-config": "*"
+  },
+  "suggests": {
+    "modmenu": "*"
+  },
+
+  "custom": {
+    "modmenu": {
+      "update_checker": true,
+      "links": {
+        "modmenu.source": "https://github.com/devxkamlesh/lag-fixer",
+        "modmenu.issues": "https://github.com/devxkamlesh/lag-fixer/issues"
+      }
+    }
+  }
+}

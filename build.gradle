@@ -1,0 +1,79 @@
+plugins {
+    id 'net.fabricmc.fabric-loom' version "${loom_version}"
+    id 'maven-publish'
+}
+
+version = project.mod_version
+group   = project.maven_group
+
+base {
+    archivesName = project.archives_base_name
+}
+
+repositories {
+    maven {
+        name = 'shedaniel'
+        url  = 'https://maven.shedaniel.me/'
+    }
+    maven {
+        name = 'Terraformers'
+        url  = 'https://maven.terraformersmc.com/'
+    }
+}
+
+loom {
+    splitEnvironmentSourceSets()
+
+    mods {
+        lagfixer {
+            sourceSet sourceSets.main
+            sourceSet sourceSets.client
+        }
+    }
+}
+
+dependencies {
+    // No mappings line for 26.x — game is unobfuscated, identity mapping used
+    minecraft "com.mojang:minecraft:${minecraft_version}"
+
+    implementation "net.fabricmc:fabric-loader:${loader_version}"
+    implementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
+
+    // Soft deps — compile-only; guarded at runtime via FabricLoader.isModLoaded()
+    compileOnly "me.shedaniel.cloth:cloth-config-fabric:${cloth_config_version}"
+    compileOnly "com.terraformersmc:modmenu:${modmenu_version}"
+
+    testImplementation platform("org.junit:junit-bom:5.11.4")
+    testImplementation "org.junit.jupiter:junit-jupiter"
+    testRuntimeOnly "org.junit.platform:junit-platform-launcher"
+}
+
+tasks.test {
+    useJUnitPlatform()
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_25
+    targetCompatibility = JavaVersion.VERSION_25
+    withSourcesJar()
+}
+
+processResources {
+    def version = project.version
+    inputs.property 'version', version
+    filteringCharset 'UTF-8'
+    filesMatching('fabric.mod.json') {
+        expand version: version
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.release   = 25
+}
+
+jar {
+    from('LICENSE') {
+        rename { "${it}_${project.base.archivesName.get()}" }
+    }
+}

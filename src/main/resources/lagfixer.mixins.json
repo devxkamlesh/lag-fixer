@@ -1,0 +1,18 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.devxkamlesh.lagfixer.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "plugin": "com.devxkamlesh.lagfixer.mixin.LagFixerMixinPlugin",
+  "mixins": [
+    "hopper.HopperBlockEntityMixin",
+    "entity.MobEntityMixin",
+    "redstone.RedStoneWireBlockMixin",
+    "collision.AbstractBlockStateMixin"
+  ],
+  "client": [],
+  "server": [],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

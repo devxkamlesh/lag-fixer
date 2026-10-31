@@ -1,0 +1,43 @@
+{
+  "lagfixer.config.title": "Lag Fixer Settings",
+  "lagfixer.config.category.optimisations": "Optimisations",
+  "lagfixer.config.category.render": "Render",
+  "lagfixer.config.category.presets": "Presets",
+
+  "lagfixer.config.hopper": "Hopper Optimisation",
+  "lagfixer.config.hopper.tooltip": "Experimental: changes hopper tick timing. Off by default; test technical builds carefully.",
+  "lagfixer.config.entity": "Entity/AI Optimisation",
+  "lagfixer.config.entity.tooltip": "Experimental: reduces distant mob AI frequency and may change behavior. Off by default.",
+  "lagfixer.config.redstone": "Redstone Optimisation",
+  "lagfixer.config.redstone.tooltip": "Experimental and unsafe for technical worlds. Off by default pending dependency-aware invalidation.",
+  "lagfixer.config.collision": "Collision/Shape Caching",
+  "lagfixer.config.collision.tooltip": "Experimental: dynamic block shapes may depend on position and neighbors. Off by default.",
+  "lagfixer.config.render": "Particle & Render Cap",
+  "lagfixer.config.render.tooltip": "Enforces particle count and render distance caps. Applies on any server, including ones you do not administer.",
+
+  "lagfixer.config.aiSkipTicks": "AI Skip Interval",
+  "lagfixer.config.aiSkipTicks.tooltip": "How many ticks to skip between AI evaluations for idle/distant mobs. Higher = more performance, less responsive AI.",
+  "lagfixer.config.maxParticles": "Max Particles",
+  "lagfixer.config.maxParticles.tooltip": "Maximum number of particles rendered at once. Lower values improve FPS on weak GPUs.",
+  "lagfixer.config.renderDistCap": "Render Distance Cap",
+  "lagfixer.config.renderDistCap.tooltip": "Maximum render distance in chunks. Caps the vanilla video setting.",
+
+  "lagfixer.config.presets.note": "Safe presets keep experimental logic mixins off. Render limits update live; mixin switches require restart.",
+  "lagfixer.config.preset.potato": "Apply: Potato",
+  "lagfixer.config.preset.potato.tooltip": "Safe logic defaults. Particles: 100. Render distance: 6. For the weakest hardware.",
+  "lagfixer.config.preset.balanced": "Apply: Balanced",
+  "lagfixer.config.preset.balanced.tooltip": "Safe logic defaults. Particles: 500. Render distance: 12. Recommended default.",
+  "lagfixer.config.preset.quality": "Apply: Quality",
+  "lagfixer.config.preset.quality.tooltip": "Safe logic defaults. Particles: 2000. Render distance: 20. For capable hardware.",
+
+  "lagfixer.dashboard.title": "Lag Fixer Performance Dashboard",
+  "lagfixer.dashboard.hud": "Toggle HUD",
+  "lagfixer.dashboard.export": "Export CSV",
+  "lagfixer.dashboard.potato": "Potato",
+  "lagfixer.dashboard.balanced": "Balanced",
+  "lagfixer.dashboard.quality": "Quality",
+  "lagfixer.dashboard.settings": "Settings",
+  "lagfixer.key.toggleHud": "Toggle Lag Fixer HUD",
+  "lagfixer.key.openDashboard": "Open Lag Fixer Dashboard",
+  "lagfixer.key.category": "Lag Fixer"
+}
